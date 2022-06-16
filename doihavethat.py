@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 
 import gspread
-from proxyIsOwned import needToBuy
+from needToBuy import needToBuy
 
 def main():
     sa = gspread.service_account(filename="sa-doihavethat.json")

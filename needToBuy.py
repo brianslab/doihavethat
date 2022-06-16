@@ -7,9 +7,19 @@
 def needToBuy(cards):
     proxies = []
     owned = []
-    
     for card in cards:
         if card[5] == 'TRUE':
-            proxies += card
+            proxies.append(card)
         else:
-            owned += card   
+            owned.append(card)   
+    
+    ownedNames = []
+    for card in owned:
+        ownedNames.append(card[0])
+    
+    
+    print("=========================\nYou need to buy:\n=========================")
+
+    for card in proxies:
+        if card[0] not in ownedNames:
+            print(card[0])
