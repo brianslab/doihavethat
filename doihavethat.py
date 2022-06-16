@@ -1,15 +1,16 @@
 #! /usr/bin/python3
 
-import sys, gspread
+import gspread
 from proxyIsOwned import proxyIsOwned
 
-def main(argv):
+def main():
     sa = gspread.service_account(filename="sa-doihavethat.json")
     sh = sa.open("TCG Inventory")
 
-    mtg = sh.worksheet("MTG")
+    mtg = sh.worksheet("MTG").get_all_values()
+    mtg.remove(mtg[0])
 
-    proxyIsOwned()
+    proxyIsOwned(mtg)
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+   main()
