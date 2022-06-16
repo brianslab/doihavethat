@@ -8,7 +8,7 @@ def main():
     sh = sa.open("TCG Inventory")
 
     mtg = sh.worksheet("MTG").get_all_values()
-    mtg.remove(mtg[0])
+    mtg.remove(mtg[0]) # first row is the header
 
     proxyIsOwned(mtg)
 
